@@ -73,7 +73,12 @@ function updateQuestionContent() {
 }
 
 
+let isTimerRunning = false; // Добавьте этот флаг
+
 function startTimer() {
+  if (isTimerRunning) return; // Не запускайте таймер, если он уже запущен
+  isTimerRunning = true; // Установите флаг, чтобы указать, что таймер активен
+
   clearInterval(timer);
   timeLeft = 30;
   timerEl.textContent = `Time left: ${timeLeft}s`;
@@ -84,6 +89,7 @@ function startTimer() {
 
     if (timeLeft <= 0) {
       clearInterval(timer);
+      isTimerRunning = false; // Сбросьте флаг, когда таймер закончится
       loadNextQuestion();
     }
   }, 1000);
@@ -91,13 +97,13 @@ function startTimer() {
 
 function loadNextQuestion() {
   currentQuestion++;
+  isTimerRunning = false; // Сброс флага перед загрузкой следующего вопроса
   if (currentQuestion < quizQuestions.length) {
     loadQuestion();
   } else {
     showResults();
   }
 }
-
 function showResults() {
   // Hide the quiz screen and show the result screen
   document.getElementById('quiz-screen').classList.remove('active');
@@ -150,11 +156,10 @@ function selectAnswer(index) {
   nextBtn.disabled = false;
   clearInterval(timer);
 }
-
-
 function restartQuiz() {
   currentQuestion = 0;
   score = 0;
+  isTimerRunning = false; // Сброс флага при перезапуске
   document.getElementById('result-screen').classList.remove('active');
   document.getElementById('start-screen').classList.add('active');
 }
