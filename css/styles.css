@@ -1,0 +1,149 @@
+/* styles.css */
+body {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("/img/img2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.53);
+}
+.button{
+  width: 90%;
+  height: auto;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  align-items: center;
+  border-radius: 20px;
+  margin: 10px 0;
+  text-align: center;
+  background: #ff99ff;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
+}
+.container {
+  border: 2px solid #E8E8E8;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.screen {
+  display: none;
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+}
+
+.screen.active {
+  display: block;
+}
+.separator {
+  width: 600px;
+  height: 1px;
+  border: 1px solid #E8E8E8;
+  background-color: #E8E8E8;
+  margin: 15px 0;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:disabled {
+  background-color: rgba(14, 0, 78, 0.36);
+}
+
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+}
+
+.option {
+  width: 90%;
+  height: 80px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  margin: 10px 0;
+  text-align: center;
+  border: 1px solid #E8E8E8;
+}
+
+.option.correct {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.option.wrong {
+  background-color: #f44336;
+  color: white;
+}
+.option.disabled {
+  cursor: not-allowed;
+  pointer-events: none; /* Блокирует клики на элементах */
+}
+.review-item.correct {
+  color: green;
+}
+
+.review-item.incorrect {
+  color: red;
+}
+#result-screen {
+  margin: 20px; /* Установите отступ для всего экрана результата */
+
+}
+
+.review-item {
+  margin-bottom: 10px; /* Установите отступ между элементами результатов */
+}
+
+.review-item p {
+  line-height: 1.2; /* Установите значение line-height для уменьшения расстояния между строками */
+  margin: 5px 0; /* Установите отступ между параграфами */
+  font-size: 20px;
+}
+
+/* Define fade-in and fade-out animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+/* Apply fade-in and fade-out effects to the question container */
+.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+}
